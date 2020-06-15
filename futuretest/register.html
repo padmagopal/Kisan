@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="i-login/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="i-login/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="i-login/css/style.css">
+    <link rel="stylesheet" type="text/css" href="i-login/css/theme.css">
+</head>
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="index.html">
+                <div class="logo">
+                    <img class="logo-size" src="i-login/images/logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>Get more things done with KISAN DOST platform.</h3>
+                    <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                    <img src="Untitled-4.png" alt="">
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <!--<div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src="images/logo-light.svg" alt="">
+                                </div>
+                            </a>
+                        </div>-->
+                        <div class="page-links">
+                            <a href="login.html" >Login</a><a href="register.html" class="active">Register</a>
+                        </div>
+                        <form action="register.php" method="post">
+                            <input class="form-control" type="text" name="name" placeholder="Name Surname" required>
+                            <input type="email" class="form-control" id="email" name="email" onblur="checkMailStatus()" placeholder="Email Address" required>
+                            <input type="password" class="form-control" name="pwd1" minlength="8" placeholder="Password" required>
+                            <input type="password" class="form-control" name="confirm" minlength="8" placeholder="Confirm Password" required>
+                            <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number" required>
+                           
+                            <select class="form-control" id="type" name="type" required>
+                                
+                                <option value="1">Customer</option>
+                                <option value="2">Farmer</option>
+                            </select>
+                            
+                            <label for="terms">I read and agree to the <a href="https://ecommerceguide.com/guides/ecommerce-terms-conditions/">terms of usage clicking on (register means you agree to it)</a>.</label>
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Signup</button> 
+                            </div>
+                        </form>
+                        <!--<div class="other-links">
+                            <span>Or login with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="i-login/js/jquery.min.js"></script>
+<script src="i-login/js/popper.min.js"></script>
+<script src="i-login/js/bootstrap.min.js"></script>
+<script src="i-login/js/main.js"></script>
+<script type="text/javascript">
+function checkMailStatus(){
+    var email=$("#email").val();
+    $.ajax({
+    type:'post',
+        url:'checkMail.php',
+        data:{email: email},
+        success:function(msg){
+          if(msg==0){
+            $("#email").parent().next(".validation").remove();
+            $("#email").parent().after("<small class='validation' style='color:red,margin-bottom: 5px,font-size:11px;'>email already existed</small>");
+          }
+          else{
+            $("#email").parent().next(".validation").remove();
+          }
+        }
+      });
+  }
+
+</script>
+</body>
+
+</html>
