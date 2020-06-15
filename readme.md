@@ -9,3 +9,4 @@ admin-some feautures
 use cmd to install the plant module in  your pc(127.0.0.1)
 rest can be run on localhost
 to run plant module on the web use aws sagemaker or any other cloud.
+for any other queries comment 
